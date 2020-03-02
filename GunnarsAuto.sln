@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GunnarsAuto.GUI", "GunnarsAuto.GUI\GunnarsAuto.GUI.csproj", "{D53B84F6-CC8A-442D-AE44-B57C956C87F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GunnarsAuto.Entities", "GunnarsAuto.Entities\GunnarsAuto.Entities.csproj", "{851707E3-4842-438C-BFD6-AB48AA6C868B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GunnarsAuto.DAL", "GunnarsAuto.DAL\GunnarsAuto.DAL.csproj", "{65EE2A37-024B-480C-9101-531C368D5D14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D53B84F6-CC8A-442D-AE44-B57C956C87F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D53B84F6-CC8A-442D-AE44-B57C956C87F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D53B84F6-CC8A-442D-AE44-B57C956C87F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851707E3-4842-438C-BFD6-AB48AA6C868B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851707E3-4842-438C-BFD6-AB48AA6C868B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851707E3-4842-438C-BFD6-AB48AA6C868B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851707E3-4842-438C-BFD6-AB48AA6C868B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EE2A37-024B-480C-9101-531C368D5D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EE2A37-024B-480C-9101-531C368D5D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EE2A37-024B-480C-9101-531C368D5D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EE2A37-024B-480C-9101-531C368D5D14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
