@@ -15,6 +15,11 @@ namespace GunnarsAuto.Entities
 		private string registryNumber;
 		private bool isUsed;
 
+		/// <summary>
+		/// Should only be used in CarRepository
+		/// </summary>
+		public Car() { }
+
 		public Car(int id, string make, string model, string vin, string registryNumber, bool isUsed)
 		{
 			Id = id;

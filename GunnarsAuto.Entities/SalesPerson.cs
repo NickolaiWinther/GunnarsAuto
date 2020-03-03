@@ -13,6 +13,11 @@ namespace GunnarsAuto.Entities
 		private string lastname;
 		private string initials;
 
+		/// <summary>
+		/// Should only be used in SalesPersonRepository
+		/// </summary>
+		public SalesPerson() { }
+
 		public SalesPerson(int id, string firstName, string lastname, string initials)
 		{
 			Id = id;
