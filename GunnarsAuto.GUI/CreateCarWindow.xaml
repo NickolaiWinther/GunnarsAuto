@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GunnarsAuto.GUI"
         mc:Ignorable="d"
-        Title="CreateCarWindow"
+        Title="Gunnars Auto - Opret bil"
         Height="450"
         Width="500"
         WindowStartupLocation="CenterScreen"
@@ -78,9 +78,10 @@
                  Margin="0,5"
                  VerticalContentAlignment="Center" />
         <Button Content="Opret"
+                Name="AddCarButton"
                 Grid.Row="7"
                 Grid.Column="1"
-                Margin="0,5"
+                Margin="0,5" IsDefault="True" 
                 VerticalContentAlignment="Center" />
     </Grid>
 </Window>

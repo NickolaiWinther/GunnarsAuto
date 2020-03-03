@@ -9,9 +9,10 @@
         Height="450"
         Width="800"
         WindowStartupLocation="CenterScreen"
-        Background="LightGray" 
+        Background="LightGray"
         FontSize="16">
     <Grid Margin="10">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
@@ -24,19 +25,52 @@
                    VerticalAlignment="Center"
                    Margin="0,0,10,0" />
             <ComboBox HorizontalAlignment="Center"
+                      x:Name="SalesPersonsComboBox"
                       Height="30"
-                      Padding="30,5">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="test" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
+                      Padding="30,5"
+                      ItemsSource="{Binding Path=SalesPersons}"
+                      DisplayMemberPath="Initials"
+                      SelectedValuePath="Initials"
+                      SelectionChanged="SalesPersonsComboBox_SelectionChanged">
             </ComboBox>
         </StackPanel>
         <DataGrid AlternatingRowBackground="LightGray"
                   Grid.Row="1"
-                  x:Name="CarDataGrid"
-                  GridLinesVisibility="None">
+                  x:Name="SalesDataGrid" MinRowHeight="40"
+                  VerticalContentAlignment="Center" CanUserAddRows="False" IsReadOnly="True"
+                  GridLinesVisibility="None" AutoGenerateColumns="False" Padding="0,0,20,0">
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Padding"
+                            Value="0,0,20,0" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <Border Padding="{TemplateBinding Padding}"
+                                        SnapsToDevicePixels="True">
+                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.CellStyle>
+
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mærke"
+                                    Binding="{Binding Car.Make}" />
+                <DataGridTextColumn Header="Model"
+                                    Binding="{Binding Car.Model}" />
+                <DataGridTextColumn Header="Registreringsnummer"
+                                    Binding="{Binding Car.RegistryNumber}" />
+                <DataGridTextColumn Header="Mærke"
+                                    Binding="{Binding Car.Make}" />
+                <DataGridTextColumn Header="Købspris"
+                                    Binding="{Binding BuyPrice, StringFormat=N2}" />
+                <DataGridTextColumn Header="Salgspris"
+                                    Binding="{Binding SellPrice, StringFormat=N2}" />
+            </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="CreateCarButton"
                 Margin="0,10,0,0"
@@ -44,6 +78,6 @@
                 Content="Opret bil"
                 Padding=" 20,10"
                 HorizontalAlignment="Right"
-                Click="CreateCarButton_Click" />
+                Click="CreateCarButton_Click" IsEnabled="False" />
     </Grid>
 </Window>
