@@ -22,7 +22,7 @@ namespace GunnarsAuto.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        SalesPersonViewModel salesPersonViewModel = new SalesPersonViewModel();
+        SalesViewModel salesPersonViewModel = new SalesViewModel();
         public MainWindow()
         {
             InitializeComponent();

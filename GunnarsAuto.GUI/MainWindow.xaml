@@ -39,22 +39,6 @@
                   x:Name="SalesDataGrid" MinRowHeight="40"
                   VerticalContentAlignment="Center" CanUserAddRows="False" IsReadOnly="True"
                   GridLinesVisibility="None" AutoGenerateColumns="False" Padding="0,0,20,0">
-            <DataGrid.CellStyle>
-                <Style TargetType="DataGridCell">
-                    <Setter Property="Padding"
-                            Value="0,0,20,0" />
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                <Border Padding="{TemplateBinding Padding}"
-                                        SnapsToDevicePixels="True">
-                                    <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </DataGrid.CellStyle>
 
 
             <DataGrid.Columns>

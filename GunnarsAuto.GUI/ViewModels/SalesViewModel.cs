@@ -9,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace GunnarsAuto.GUI.ViewModels
 {
-    class SalesPersonViewModel : INotifyPropertyChanged
+    class SalesViewModel : INotifyPropertyChanged
     {
         private SalesPerson selectedSalesPerson;
         private List<Sale> sales;
         private List<SalesPerson> salesPersons;
+        private Sale newSale;
 
         public SalesPerson SelectedSalesPerson
         {
@@ -24,6 +25,7 @@ namespace GunnarsAuto.GUI.ViewModels
                 OnPropertyChanged(nameof(SelectedSalesPerson));
             }
         }
+
         public List<Sale> Sales
         {
             get
@@ -47,6 +49,20 @@ namespace GunnarsAuto.GUI.ViewModels
             set
             {
                 salesPersons = value;
+            }
+        }
+
+        public Sale NewSale
+        {
+            get
+            {
+                return newSale;
+            }
+            set
+            {
+                newSale = value;
+                newSale.SalesPerson = SelectedSalesPerson;
+                OnPropertyChanged(nameof(NewSale));
             }
         }
 
