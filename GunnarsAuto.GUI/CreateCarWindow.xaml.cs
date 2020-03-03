@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GunnarsAuto.GUI
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for CreateCarWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreateCarWindow : Window
     {
-        public MainWindow()
+        public CreateCarWindow()
         {
             InitializeComponent();
-        }
-
-        private void CreateCarButton_Click(object sender, RoutedEventArgs e)
-        {
-            CreateCarWindow createCarWindow= new CreateCarWindow();
-            createCarWindow.Show();
         }
     }
 }

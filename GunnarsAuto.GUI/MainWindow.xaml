@@ -5,6 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GunnarsAuto.GUI"
         mc:Ignorable="d"
-        Title="Gunnars Auto" Height="450" Width="800">
-    <Grid/>
+        Title="Gunnars Auto"
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="LightGray" 
+        FontSize="16">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="55" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <Label Content="Sælger:"
+                   VerticalAlignment="Center"
+                   Margin="0,0,10,0" />
+            <ComboBox HorizontalAlignment="Center"
+                      Height="30"
+                      Padding="30,5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="test" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <DataGrid AlternatingRowBackground="LightGray"
+                  Grid.Row="1"
+                  x:Name="CarDataGrid"
+                  GridLinesVisibility="None">
+        </DataGrid>
+        <Button x:Name="CreateCarButton"
+                Margin="0,10,0,0"
+                Grid.Row="2"
+                Content="Opret bil"
+                Padding=" 20,10"
+                HorizontalAlignment="Right"
+                Click="CreateCarButton_Click" />
+    </Grid>
 </Window>
