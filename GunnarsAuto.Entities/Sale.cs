@@ -14,6 +14,8 @@ namespace GunnarsAuto.Entities
 		private bool isSold;
 		private SalesPerson salesPerson;
 		private Car car;
+		private DateTime buyDate;
+		private DateTime? sellDate;
 
 		/// <summary>
 		/// Should only be used in SaleRepository
@@ -37,6 +39,7 @@ namespace GunnarsAuto.Entities
 			IsSold = isSold;
 			SalesPerson = salesPerson;
 			Car = car;
+
 		}
 
 		public int Id
@@ -74,5 +77,26 @@ namespace GunnarsAuto.Entities
 			get { return car; }
 			set { car = value; }
 		}
+
+		public DateTime BuyDate
+		{
+			get { return buyDate; }
+			set { buyDate = value; }
+		}
+
+		public DateTime? SellDate
+		{
+			get { return sellDate; }
+			set { sellDate = value; }
+		}
+
+
+		#region Validation Methods
+
+
+
+
+
+		#endregion
 	}
 }
