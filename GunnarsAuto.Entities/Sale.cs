@@ -15,6 +15,11 @@ namespace GunnarsAuto.Entities
 		private SalesPerson salesPerson;
 		private Car car;
 
+		/// <summary>
+		/// Should only be used in SaleRepository
+		/// </summary>
+		public Sale() { }
+
 		public Sale(int id, decimal buyPrice, decimal sellPrice, bool isSold, SalesPerson salesPerson, Car car)
 		{
 			Id = id;
