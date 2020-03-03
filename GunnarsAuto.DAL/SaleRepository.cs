@@ -10,8 +10,12 @@ namespace GunnarsAuto.DAL
 {
     public class SaleRepository : BaseRepository
     {
-        public List<Sale> GetSalesBySalePersonsId(SalesPerson salesPerson)
+        public List<Sale> GetSalesBySalesPersonsId(SalesPerson salesPerson)
         {
+            if (salesPerson is null)
+            {
+                return null;
+            }
             string sql = 
                 $"SELECT * FROM Sales " +
                 $"JOIN SalesPersons ON SalesPersons.Id = Sales.SalesPersonId " +
@@ -51,11 +55,11 @@ namespace GunnarsAuto.DAL
 
             foreach (DataRow row in dataTable.Rows)
             {
+                
                 Sale tempSale = new Sale()
                 {
-                    Id = (int)row["CarId"],
+                    Id = (int)row["Id"],
                     BuyPrice = (decimal)row["BuyPrice"],
-                    SellPrice = (decimal)row["SellPrice"],
                     IsSold = Convert.ToBoolean(row["IsSold"]),
                     Car = new Car()
                     {
@@ -74,6 +78,12 @@ namespace GunnarsAuto.DAL
                         Initials = (string)row["Initials"]
                     }
                 };
+                if (row["SellPrice"] != DBNull.Value)
+                {
+                    tempSale.SellPrice = (decimal)row["SellPrice"];
+                }
+
+
                 saleList.Add(tempSale);
             }
             return saleList;

@@ -5,6 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GunnarsAuto.GUI"
         mc:Ignorable="d"
-        Title="Gunnars Auto" Height="450" Width="800">
-    <Grid/>
+        Title="Gunnars Auto"
+        Height="450"
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        Background="LightGray"
+        FontSize="16">
+    <Grid Margin="10">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="55" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <Label Content="Sælger:"
+                   VerticalAlignment="Center"
+                   Margin="0,0,10,0" />
+            <ComboBox HorizontalAlignment="Center"
+                      x:Name="SalesPersonsComboBox"
+                      Height="30"
+                      Padding="30,5"
+                      ItemsSource="{Binding Path=SalesPersons}"
+                      DisplayMemberPath="Initials"
+                      SelectedValuePath="Initials"
+                      SelectionChanged="SalesPersonsComboBox_SelectionChanged">
+            </ComboBox>
+        </StackPanel>
+        <DataGrid AlternatingRowBackground="LightGray"
+                  Grid.Row="1"
+                  x:Name="SalesDataGrid" MinRowHeight="40"
+                  VerticalContentAlignment="Center" CanUserAddRows="False" IsReadOnly="True"
+                  GridLinesVisibility="None" AutoGenerateColumns="False" Padding="0,0,20,0">
+
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mærke"
+                                    Binding="{Binding Car.Make}" />
+                <DataGridTextColumn Header="Model"
+                                    Binding="{Binding Car.Model}" />
+                <DataGridTextColumn Header="Registreringsnummer"
+                                    Binding="{Binding Car.RegistryNumber}" />
+                <DataGridTextColumn Header="Mærke"
+                                    Binding="{Binding Car.Make}" />
+                <DataGridTextColumn Header="Købspris"
+                                    Binding="{Binding BuyPrice, StringFormat=N2}" />
+                <DataGridTextColumn Header="Salgspris"
+                                    Binding="{Binding SellPrice, StringFormat=N2}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="CreateCarButton"
+                Margin="0,10,0,0"
+                Grid.Row="2"
+                Content="Opret bil"
+                Padding=" 20,10"
+                HorizontalAlignment="Right"
+                Click="CreateCarButton_Click" IsEnabled="False" />
+    </Grid>
 </Window>
