@@ -66,7 +66,6 @@ namespace GunnarsAuto.DAL
                     BuyPrice = (decimal)row["BuyPrice"],
                     IsSold = Convert.ToBoolean(row["IsSold"]),
                     BuyDate = (DateTime)row["BuyDate"],
-                    SellDate = (DateTime)row["SellDate"],
                     Car = new Car()
                     {
                         Id = (int)row["CarId"],
@@ -87,6 +86,10 @@ namespace GunnarsAuto.DAL
                 if (row["SellPrice"] != DBNull.Value)
                 {
                     tempSale.SellPrice = (decimal)row["SellPrice"];
+                }
+                if (row["SellDate"] != DBNull.Value)
+                {
+                    tempSale.SellDate = (DateTime)row["SellDate"];
                 }
 
 

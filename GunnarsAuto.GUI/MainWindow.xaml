@@ -48,12 +48,14 @@
                                     Binding="{Binding Car.Model}" />
                 <DataGridTextColumn Header="Registreringsnummer"
                                     Binding="{Binding Car.RegistryNumber}" />
-                <DataGridTextColumn Header="Mærke"
-                                    Binding="{Binding Car.Make}" />
                 <DataGridTextColumn Header="Købspris"
                                     Binding="{Binding BuyPrice, StringFormat=N2}" />
+                <DataGridTextColumn Header="Købsdato"
+                                    Binding="{Binding BuyDate, StringFormat=dd-MM-yyyy}" />
                 <DataGridTextColumn Header="Salgspris"
                                     Binding="{Binding SellPrice, StringFormat=N2}" />
+                <DataGridTextColumn Header="Salgsdato"
+                                    Binding="{Binding SellDate, StringFormat=dd-MM-yyyy}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="CreateCarButton"
