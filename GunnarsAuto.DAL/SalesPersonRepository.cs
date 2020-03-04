@@ -31,7 +31,7 @@ namespace GunnarsAuto.DAL
             {
                 SalesPerson tempSalesPerson= new SalesPerson()
                 {
-                    Id = (int)row["SalesPersonId"],
+                    Id = (int)row["Id"],
                     Firstname = (string)row["Firstname"],
                     Lastname = (string)row["Lastname"],
                     Initials = (string)row["Initials"]
