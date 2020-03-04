@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Gunnars Auto"
         Height="450"
-        Width="800"
+        Width="850"
         WindowStartupLocation="CenterScreen"
         Background="LightGray"
         FontSize="16">
@@ -34,12 +34,36 @@
                       SelectionChanged="SalesPersonsComboBox_SelectionChanged">
             </ComboBox>
         </StackPanel>
-        <DataGrid AlternatingRowBackground="LightGray"
-                  Grid.Row="1"
+        <DataGrid Grid.Row="1" SelectionMode="Single"
                   x:Name="SalesDataGrid" MinRowHeight="40"
                   VerticalContentAlignment="Center" CanUserAddRows="False" IsReadOnly="True"
-                  GridLinesVisibility="None" AutoGenerateColumns="False" Padding="0,0,20,0">
+                  GridLinesVisibility="None" AutoGenerateColumns="False" Padding="0,0,20,0" Background="WhiteSmoke">
+            <DataGrid.Resources>
+                
+                <Style TargetType="{x:Type DataGrid}">
+                    <Setter Property="AlternatingRowBackground" Value="WhiteSmoke"/>
+                    <Setter Property="CanUserResizeRows" Value="False"/>
+                    <Setter Property="CanUserReorderColumns" Value="False"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="Margin" Value="5" />
+                    <Style.Triggers >
+                        <Trigger Property="DataGridCell.IsSelected" Value="true">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Style.Triggers >
+                        <Trigger Property="DataGridRow.IsSelected" Value="true">
+                            <Setter Property="Background" Value="LightBlue" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
 
+            </DataGrid.Resources>
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Mærke"
@@ -56,6 +80,8 @@
                                     Binding="{Binding SellPrice, StringFormat=N2}" />
                 <DataGridTextColumn Header="Salgsdato"
                                     Binding="{Binding SellDate, StringFormat=dd-MM-yyyy}" />
+                <DataGridCheckBoxColumn Header="Brugt"
+                                        Binding="{Binding Car.IsUsed}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="CreateCarButton"
@@ -64,6 +90,18 @@
                 Content="Opret bil"
                 Padding=" 20,10"
                 HorizontalAlignment="Right"
-                Click="CreateCarButton_Click" IsEnabled="False" />
+                Click="CreateCarButton_Click"
+                IsEnabled="False" 
+                Background="WhiteSmoke"/>
+
+        <Button x:Name="SellCarButton"
+                Margin="0,10,0,0"
+                Grid.Row="2"
+                Content="Sælg bil"
+                Padding=" 20,10"
+                HorizontalAlignment="Left"
+                Click="SellCarButton_Click"
+                IsEnabled="False" 
+                Background="WhiteSmoke"/>
     </Grid>
 </Window>

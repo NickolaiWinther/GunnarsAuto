@@ -20,7 +20,8 @@ namespace GunnarsAuto.DAL
                 $"SELECT * FROM Sales " +
                 $"JOIN SalesPersons ON SalesPersons.Id = Sales.SalesPersonId " +
                 $"JOIN Cars ON Cars.Id = Sales.CarId " +
-                $"WHERE SalesPersonId = {salesPerson.Id}";
+                $"WHERE SalesPersonId = {salesPerson.Id} " +
+                $"ORDER BY BuyDate DESC";
             return HandleData(ExecuteQuery(sql));
         }
 

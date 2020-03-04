@@ -42,5 +42,10 @@ namespace GunnarsAuto.GUI
             CreateCarButton.IsEnabled = true;
             
         }
+
+        private void SellCarButton_Click(object sender, RoutedEventArgs e)
+        {
+            SellCarWindow sellCarWindow = new SellCarWindow(salesViewModel);
+        }
     }
 }

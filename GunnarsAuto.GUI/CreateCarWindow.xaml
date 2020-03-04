@@ -8,6 +8,7 @@
         Title="Gunnars Auto - Opret bil"
         Height="450"
         Width="500"
+        Background="LightGray"
         WindowStartupLocation="CenterScreen"
         FontSize="16">
     <Grid Margin="10">
@@ -92,6 +93,7 @@
                 Margin="0,5"
                 IsDefault="True"
                 VerticalContentAlignment="Center"
-                Click="AddCarButton_Click" />
+                Click="AddCarButton_Click" 
+                Background="WhiteSmoke"/>
     </Grid>
 </Window>

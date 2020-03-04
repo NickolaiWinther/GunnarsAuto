@@ -14,6 +14,7 @@ namespace GunnarsAuto.GUI.ViewModels
         private SalesPerson selectedSalesPerson;
         private List<Sale> sales;
         private List<SalesPerson> salesPersons;
+        private Sale selectedSale;
 
         public SalesPerson SelectedSalesPerson
         {
@@ -51,12 +52,22 @@ namespace GunnarsAuto.GUI.ViewModels
             }
         }
 
+        //public Sale SelectedSale
+        //{
+
+        //}
+
 
         public void CreateSale(Sale newSale)
         {
             SaleRepository saleRepository = new SaleRepository();
             newSale.SalesPerson = SelectedSalesPerson;
             saleRepository.CreateSale(newSale);
+        }
+
+        public void SellCar(Sale sale)
+        {
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
