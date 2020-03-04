@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GunnarsAuto.DAL;
+using GunnarsAuto.Entities;
+using GunnarsAuto.GUI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,30 @@ namespace GunnarsAuto.GUI
     /// </summary>
     public partial class CreateCarWindow : Window
     {
-        public CreateCarWindow()
+        SalesViewModel salesViewModel;
+        public CreateCarWindow(SalesViewModel salesViewModel)
         {
+            this.salesViewModel = salesViewModel;
             InitializeComponent();
+            DataContext = this.salesViewModel;
+        }
+
+        private void AddCarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Sale newSale = new Sale()
+            {
+                BuyPrice = decimal.Parse(BuyPriceTextBox.Text),
+                Car = new Car()
+                {
+                    Make = MakeTextBox.Text,
+                    Model = ModelTextBox.Text,
+                    VIN = VINTextBox.Text,
+                    RegistryNumber = RegistryNumberTextBox.Text,
+                    IsUsed = (bool)IsUsedCheckBox.IsChecked
+                }
+            };
+            salesViewModel.CreateSale(newSale);
+            MessageBox.Show("Oprettelse lykkedes!", "Opret", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
