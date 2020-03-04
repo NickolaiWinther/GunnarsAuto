@@ -87,18 +87,6 @@ namespace GunnarsAuto.Entities
 			set { car = value; }
 		}
 
-		public DateTime BuyDate
-		{
-			get { return buyDate; }
-			set { buyDate = value; }
-		}
-
-		public DateTime? SellDate
-		{
-			get { return sellDate; }
-			set { sellDate = value; }
-		}
-
 
 		#region Validation Methods
 
