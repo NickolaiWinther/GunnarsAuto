@@ -22,23 +22,23 @@ namespace GunnarsAuto.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        SalesViewModel salesPersonViewModel = new SalesViewModel();
+        SalesViewModel salesViewModel = new SalesViewModel();
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = salesPersonViewModel;
+            DataContext = salesViewModel;
         }
 
         private void CreateCarButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateCarWindow createCarWindow = new CreateCarWindow();
+            CreateCarWindow createCarWindow = new CreateCarWindow(salesViewModel);
             createCarWindow.Show();
         }
 
         private void SalesPersonsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            salesPersonViewModel.SelectedSalesPerson = SalesPersonsComboBox.SelectedItem as SalesPerson;
-            SalesDataGrid.ItemsSource = salesPersonViewModel.Sales;
+            salesViewModel.SelectedSalesPerson = SalesPersonsComboBox.SelectedItem as SalesPerson;
+            SalesDataGrid.ItemsSource = salesViewModel.Sales;
             CreateCarButton.IsEnabled = true;
             
         }

@@ -26,11 +26,15 @@ namespace GunnarsAuto.DAL
 
         public int CreateSale(Sale sale)
         {
+
+            int rowsAffected = new CarRepository().CreateCar(sale.Car);
+            sale.Car = new CarRepository().GetCarByVIN(sale.Car.VIN);
+
+
             string saleSql = 
                 $"INSERT INTO Sales(BuyPrice, SalesPersonId, CarId) " +
                 $"VALUES ({sale.BuyPrice}, {sale.SalesPerson.Id}, {sale.Car.Id})";
 
-            int rowsAffected = new CarRepository().CreateCar(sale.Car);
 
             return rowsAffected + ExecuteNonQuery(saleSql);
         }

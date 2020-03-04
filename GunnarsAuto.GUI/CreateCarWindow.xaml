@@ -10,7 +10,7 @@
         Width="500"
         WindowStartupLocation="CenterScreen"
         FontSize="16">
-    <Grid Margin="10" DataContext="{Binding NewSale}">
+    <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="170" />
             <ColumnDefinition Width="*" />
@@ -31,10 +31,10 @@
                Margin="0,5"
                VerticalContentAlignment="Center" />
         <TextBox Grid.Row="0"
+                 x:Name="MakeTextBox"
                  Grid.Column="1"
                  Margin="0,5"
-                 VerticalContentAlignment="Center"
-                 Text="{Binding Car.Make}"/>
+                 VerticalContentAlignment="Center"/>
         <Label Content="Model"
                Grid.Row="1"
                Grid.Column="0"
@@ -44,7 +44,7 @@
                  Grid.Column="1"
                  Margin="0,5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Car.Model}" />
+                 x:Name="ModelTextBox" />
         <Label Content="Stelnummer"
                Grid.Row="2"
                Grid.Column="0"
@@ -54,7 +54,7 @@
                  Grid.Column="1"
                  Margin="0,5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Car.VIN}" />
+                 x:Name="VINTextBox" />
         <Label Content="Registreringsnummer"
                Grid.Row="3"
                Grid.Column="0"
@@ -64,7 +64,7 @@
                  Grid.Column="1"
                  Margin="0,5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding Car.RegistryNumber}" />
+                 x:Name="RegistryNumberTextBox" />
         <Label Content="Brugt"
                Grid.Row="4"
                Grid.Column="0"
@@ -74,7 +74,7 @@
                   Grid.Column="1"
                   Margin="0,5"
                   VerticalContentAlignment="Center"
-                  IsChecked="{Binding Car.IsUsed}" />
+                  x:Name="IsUsedCheckBox" />
         <Label Content="Købspris"
                Grid.Row="5"
                Grid.Column="0"
@@ -84,13 +84,14 @@
                  Grid.Column="1"
                  Margin="0,5"
                  VerticalContentAlignment="Center"
-                 Text="{Binding BuyPrice}" />
+                 x:Name="BuyPriceTextBox" />
         <Button Content="Opret"
                 Name="AddCarButton"
                 Grid.Row="7"
                 Grid.Column="1"
                 Margin="0,5"
                 IsDefault="True"
-                VerticalContentAlignment="Center" />
+                VerticalContentAlignment="Center"
+                Click="AddCarButton_Click" />
     </Grid>
 </Window>
