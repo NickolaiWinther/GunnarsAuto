@@ -18,6 +18,8 @@ namespace GunnarsAuto.DAL
         }
 
 
+
+
         private List<SalesPerson> HandleData(DataTable dataTable)
         {
             List<SalesPerson> salesPersonList = new List<SalesPerson>();

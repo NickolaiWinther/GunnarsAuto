@@ -55,6 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\SalesViewModel.cs" />
+    <Page Include="CreateCarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +67,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CreateCarWindow.xaml.cs">
+      <DependentUpon>CreateCarWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -95,7 +103,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <ProjectReference Include="..\GunnarsAuto.DAL\GunnarsAuto.DAL.csproj">
+      <Project>{65EE2A37-024B-480C-9101-531C368D5D14}</Project>
+      <Name>GunnarsAuto.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GunnarsAuto.Entities\GunnarsAuto.Entities.csproj">
+      <Project>{851707E3-4842-438C-BFD6-AB48AA6C868B}</Project>
+      <Name>GunnarsAuto.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

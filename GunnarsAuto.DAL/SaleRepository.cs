@@ -10,8 +10,12 @@ namespace GunnarsAuto.DAL
 {
     public class SaleRepository : BaseRepository
     {
-        public List<Sale> GetSalesBySalePersonsId(SalesPerson salesPerson)
+        public List<Sale> GetSalesBySalesPersonsId(SalesPerson salesPerson)
         {
+            if (salesPerson is null)
+            {
+                return null;
+            }
             string sql = 
                 $"SELECT * FROM Sales " +
                 $"JOIN SalesPersons ON SalesPersons.Id = Sales.SalesPersonId " +
@@ -22,11 +26,15 @@ namespace GunnarsAuto.DAL
 
         public int CreateSale(Sale sale)
         {
+
+            int rowsAffected = new CarRepository().CreateCar(sale.Car);
+            sale.Car = new CarRepository().GetCarByVIN(sale.Car.VIN);
+
+
             string saleSql = 
                 $"INSERT INTO Sales(BuyPrice, SalesPersonId, CarId) " +
                 $"VALUES ({sale.BuyPrice}, {sale.SalesPerson.Id}, {sale.Car.Id})";
 
-            int rowsAffected = new CarRepository().CreateCar(sale.Car);
 
             return rowsAffected + ExecuteNonQuery(saleSql);
         }
@@ -51,11 +59,11 @@ namespace GunnarsAuto.DAL
 
             foreach (DataRow row in dataTable.Rows)
             {
+                
                 Sale tempSale = new Sale()
                 {
                     Id = (int)row["Id"],
                     BuyPrice = (decimal)row["BuyPrice"],
-                    SellPrice = (decimal)row["SellPrice"],
                     IsSold = Convert.ToBoolean(row["IsSold"]),
                     BuyDate = (DateTime)row["BuyDate"],
                     SellDate = (DateTime)row["SellDate"],
@@ -76,6 +84,12 @@ namespace GunnarsAuto.DAL
                         Initials = (string)row["Initials"]
                     }
                 };
+                if (row["SellPrice"] != DBNull.Value)
+                {
+                    tempSale.SellPrice = (decimal)row["SellPrice"];
+                }
+
+
                 saleList.Add(tempSale);
             }
             return saleList;

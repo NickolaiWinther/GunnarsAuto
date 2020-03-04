@@ -10,11 +10,11 @@ namespace GunnarsAuto.DAL
 {
     public class CarRepository : BaseRepository
     {
-        //public Car GetCarById(int id)
-        //{
-        //    string sql = $"SELECT * FROM Cars WHERE CarId = {id}";
-        //    return HandleData(ExecuteQuery(sql)).FirstOrDefault();
-        //}
+        public Car GetCarByVIN(string vin)
+        {
+            string sql = $"SELECT * FROM Cars WHERE VIN = '{vin}'";
+            return HandleData(ExecuteQuery(sql)).FirstOrDefault();
+        }
 
         public int CreateCar(Car car)
         {
@@ -26,27 +26,27 @@ namespace GunnarsAuto.DAL
             return ExecuteNonQuery(sql);
         }
 
-        //private List<Car> HandleData(DataTable dataTable)
-        //{
-        //    List<Car> carList = new List<Car>();
+        private List<Car> HandleData(DataTable dataTable)
+        {
+            List<Car> carList = new List<Car>();
 
-        //    if (dataTable is null)
-        //        return carList;
+            if (dataTable is null)
+                return carList;
 
-        //    foreach (DataRow row in dataTable.Rows)
-        //    {
-        //        Car tempCar = new Car()
-        //        {
-        //            Id = (int)row["CarId"],
-        //            Make = (string)row["Make"],
-        //            Model = (string)row["Model"],
-        //            VIN = (string)row["VIN"],
-        //            RegistryNumber = (string)row["RegistryNumber"],
-        //            IsUsed = (bool)row["IsUsed"]
-        //        };
-        //        carList.Add(tempCar);
-        //    }
-        //    return carList;
-        //}
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Car tempCar = new Car()
+                {
+                    Id = (int)row["Id"],
+                    Make = (string)row["Make"],
+                    Model = (string)row["Model"],
+                    VIN = (string)row["VIN"],
+                    RegistryNumber = (string)row["RegistryNumber"],
+                    IsUsed = (bool)row["IsUsed"]
+                };
+                carList.Add(tempCar);
+            }
+            return carList;
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace GunnarsAuto.Entities
     {
 		private int id;
 		private decimal buyPrice;
-		private decimal sellPrice;
+		private decimal? sellPrice;
 		private bool isSold;
 		private SalesPerson salesPerson;
 		private Car car;
@@ -32,13 +32,12 @@ namespace GunnarsAuto.Entities
 			Car = car;
 		}
 
-		public Sale(decimal buyPrice, decimal sellPrice, bool isSold, SalesPerson salesPerson, Car car)
+		public Sale(decimal buyPrice, SalesPerson salesPerson, Car car)
 		{
 			BuyPrice = buyPrice;
-			SellPrice = sellPrice;
-			IsSold = isSold;
 			SalesPerson = salesPerson;
 			Car = car;
+
 		}
 
 		public int Id
@@ -53,7 +52,7 @@ namespace GunnarsAuto.Entities
 			set { buyPrice = value; }
 		}
 
-		public decimal SellPrice
+		public decimal? SellPrice
 		{
 			get { return sellPrice; }
 			set { sellPrice = value; }
@@ -87,5 +86,26 @@ namespace GunnarsAuto.Entities
 			get { return car; }
 			set { car = value; }
 		}
+
+		public DateTime BuyDate
+		{
+			get { return buyDate; }
+			set { buyDate = value; }
+		}
+
+		public DateTime? SellDate
+		{
+			get { return sellDate; }
+			set { sellDate = value; }
+		}
+
+
+		#region Validation Methods
+
+
+
+
+
+		#endregion
 	}
 }

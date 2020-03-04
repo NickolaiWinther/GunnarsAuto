@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GunnarsAuto.Entities;
+using GunnarsAuto.GUI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,25 @@ namespace GunnarsAuto.GUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        SalesViewModel salesViewModel = new SalesViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = salesViewModel;
+        }
+
+        private void CreateCarButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateCarWindow createCarWindow = new CreateCarWindow(salesViewModel);
+            createCarWindow.Show();
+        }
+
+        private void SalesPersonsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            salesViewModel.SelectedSalesPerson = SalesPersonsComboBox.SelectedItem as SalesPerson;
+            SalesDataGrid.ItemsSource = salesViewModel.Sales;
+            CreateCarButton.IsEnabled = true;
+            
         }
     }
 }
