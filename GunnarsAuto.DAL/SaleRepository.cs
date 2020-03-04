@@ -35,7 +35,7 @@ namespace GunnarsAuto.DAL
         {
             string sql =
                 $"UPDATE Sales " +
-                $"SET SellPrice = {sale.SellPrice}, IsSold = 1 " +
+                $"SET SellPrice = {sale.SellPrice}, IsSold = 1, SellDate = GETDATE() " +
                 $"WHERE Id = {sale.Id}";
 
             return ExecuteNonQuery(sql);
@@ -53,10 +53,12 @@ namespace GunnarsAuto.DAL
             {
                 Sale tempSale = new Sale()
                 {
-                    Id = (int)row["CarId"],
+                    Id = (int)row["Id"],
                     BuyPrice = (decimal)row["BuyPrice"],
                     SellPrice = (decimal)row["SellPrice"],
                     IsSold = Convert.ToBoolean(row["IsSold"]),
+                    BuyDate = (DateTime)row["BuyDate"],
+                    SellDate = (DateTime)row["SellDate"],
                     Car = new Car()
                     {
                         Id = (int)row["CarId"],
@@ -69,7 +71,7 @@ namespace GunnarsAuto.DAL
                     SalesPerson = new SalesPerson()
                     {
                         Id = (int)row["SalesPersonId"],
-                        FirstName = (string)row["Firstname"],
+                        Firstname = (string)row["Firstname"],
                         Lastname = (string)row["Lastname"],
                         Initials = (string)row["Initials"]
                     }

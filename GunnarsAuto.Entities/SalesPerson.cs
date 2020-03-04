@@ -18,10 +18,10 @@ namespace GunnarsAuto.Entities
 		/// </summary>
 		public SalesPerson() { }
 
-		public SalesPerson(int id, string firstName, string lastname, string initials)
+		public SalesPerson(int id, string firstname, string lastname, string initials)
 		{
 			Id = id;
-			FirstName = firstName;
+			Firstname = firstname;
 			Lastname = lastname;
 			Initials = initials;
 		}
@@ -32,7 +32,7 @@ namespace GunnarsAuto.Entities
 			set { id = value; }
 		}
 
-		public string FirstName
+		public string Firstname
 		{
 			get { return firstname; }
 			set { firstname = value; }
