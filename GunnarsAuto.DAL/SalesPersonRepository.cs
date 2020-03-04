@@ -18,6 +18,8 @@ namespace GunnarsAuto.DAL
         }
 
 
+
+
         private List<SalesPerson> HandleData(DataTable dataTable)
         {
             List<SalesPerson> salesPersonList = new List<SalesPerson>();
@@ -29,8 +31,8 @@ namespace GunnarsAuto.DAL
             {
                 SalesPerson tempSalesPerson= new SalesPerson()
                 {
-                    Id = (int)row["Id"],
-                    FirstName = (string)row["Firstname"],
+                    Id = (int)row["SalesPersonId"],
+                    Firstname = (string)row["Firstname"],
                     Lastname = (string)row["Lastname"],
                     Initials = (string)row["Initials"]
                 };
