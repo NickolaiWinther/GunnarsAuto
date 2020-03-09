@@ -30,9 +30,10 @@
                       Padding="30,5"
                       ItemsSource="{Binding Path=SalesPersons}"
                       DisplayMemberPath="Initials"
-                      SelectedValuePath="Initials"
-                      SelectionChanged="SalesPersonsComboBox_SelectionChanged">
+                      SelectedValuePath="Initials" SelectionChanged="SalesPersonsComboBox_SelectionChanged">
             </ComboBox>
+            <TextBlock x:Name="SelectedSalesPersonName" 
+                       VerticalAlignment="Center" Margin="10"/>
         </StackPanel>
         <DataGrid Grid.Row="1" SelectionMode="Single"
                   x:Name="SalesDataGrid" MinRowHeight="40"

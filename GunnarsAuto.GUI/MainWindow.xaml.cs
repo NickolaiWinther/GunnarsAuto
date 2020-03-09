@@ -41,7 +41,7 @@ namespace GunnarsAuto.GUI
             salesViewModel.SelectedSalesPerson = SalesPersonsComboBox.SelectedItem as SalesPerson;
             SalesDataGrid.ItemsSource = salesViewModel.Sales;
             CreateCarButton.IsEnabled = true;
-            
+            SelectedSalesPersonName.Text = $"{salesViewModel.SelectedSalesPerson.Firstname} {salesViewModel.SelectedSalesPerson.Lastname}";
         }
 
         private void SellCarButton_Click(object sender, RoutedEventArgs e)
