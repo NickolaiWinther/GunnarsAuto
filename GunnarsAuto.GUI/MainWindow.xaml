@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:GunnarsAuto.GUI"
         mc:Ignorable="d"
         Title="Gunnars Auto"
-        Height="450"
-        Width="850"
+        Height="500"
+        Width="1100"
         WindowStartupLocation="CenterScreen"
         Background="LightGray"
         FontSize="16">
@@ -37,7 +37,7 @@
         <DataGrid Grid.Row="1" SelectionMode="Single"
                   x:Name="SalesDataGrid" MinRowHeight="40"
                   VerticalContentAlignment="Center" CanUserAddRows="False" IsReadOnly="True"
-                  GridLinesVisibility="None" AutoGenerateColumns="False" Padding="0,0,20,0" Background="WhiteSmoke">
+                  GridLinesVisibility="None" AutoGenerateColumns="False" Padding="0,0,20,0" Background="WhiteSmoke" SelectionChanged="SalesDataGrid_SelectionChanged">
             <DataGrid.Resources>
                 
                 <Style TargetType="{x:Type DataGrid}">
@@ -72,6 +72,8 @@
                                     Binding="{Binding Car.Model}" />
                 <DataGridTextColumn Header="Registreringsnummer"
                                     Binding="{Binding Car.RegistryNumber}" />
+                <DataGridTextColumn Header="VIN"
+                                    Binding="{Binding Car.VIN}" />
                 <DataGridTextColumn Header="Købspris"
                                     Binding="{Binding BuyPrice, StringFormat=N2}" />
                 <DataGridTextColumn Header="Købsdato"

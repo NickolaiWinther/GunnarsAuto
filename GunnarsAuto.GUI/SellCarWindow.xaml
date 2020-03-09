@@ -20,7 +20,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="Pris på bilen" Margin="0, 0, 0, 10"/>
-        <TextBox HorizontalAlignment="Stretch" Padding="5" Grid.Row="1" Margin="2"/>
-        <Button Content="Sælg" HorizontalAlignment="Stretch" Padding="20, 5" Grid.Row="1" Grid.Column="1" Margin="2" Background="WhiteSmoke"/>
+        <TextBox x:Name="SellCarPriceTextBox"
+                 Text="{Binding SelectedSale.SellPrice}"
+                 HorizontalAlignment="Stretch" 
+                 Padding="5" 
+                 Grid.Row="1" 
+                 Margin="2"/>
+        <Button x:Name="SellCarButton" 
+                Content="Sælg" 
+                HorizontalAlignment="Stretch" 
+                Padding="20, 5" 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                Margin="2" 
+                Background="WhiteSmoke" Click="SellCarButton_Click"/>
     </Grid>
 </Window>

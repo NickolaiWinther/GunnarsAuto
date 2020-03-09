@@ -1,4 +1,5 @@
-﻿using GunnarsAuto.GUI.ViewModels;
+﻿using GunnarsAuto.DAL;
+using GunnarsAuto.GUI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +21,23 @@ namespace GunnarsAuto.GUI
     /// </summary>
     public partial class SellCarWindow : Window
     {
+        SalesViewModel SalesViewModel;
         public SellCarWindow(SalesViewModel salesViewModel)
         {
             InitializeComponent();
             DataContext = salesViewModel;
-
+            SalesViewModel = salesViewModel;
 
 
             //salesViewModel.SellCar();
+        }
+
+
+        private void SellCarButton_Click(object sender, RoutedEventArgs e)
+        {
+            new SaleRepository().UpdateSale(SalesViewModel.SelectedSale);
+            MessageBox.Show("Bilen er solgt!", "Solgt", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
         }
     }
 }

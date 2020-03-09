@@ -46,6 +46,7 @@ namespace GunnarsAuto.GUI
             };
             salesViewModel.CreateSale(newSale);
             MessageBox.Show("Oprettelse lykkedes!", "Opret", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
         }
     }
 }

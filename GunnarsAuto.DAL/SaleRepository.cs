@@ -44,7 +44,7 @@ namespace GunnarsAuto.DAL
         {
             string sql =
                 $"UPDATE Sales " +
-                $"SET SellPrice = {sale.SellPrice}, IsSold = 1, SellDate = GETDATE() " +
+                $"SET SellPrice = {sale.SellPrice.ToString().Replace(',', '.')}, IsSold = 1, SellDate = GETDATE() " +
                 $"WHERE Id = {sale.Id}";
 
             return ExecuteNonQuery(sql);

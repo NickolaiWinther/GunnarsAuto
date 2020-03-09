@@ -52,10 +52,15 @@ namespace GunnarsAuto.GUI.ViewModels
             }
         }
 
-        //public Sale SelectedSale
-        //{
-
-        //}
+        public Sale SelectedSale
+        {
+            get { return selectedSale; }
+            set
+            {
+                selectedSale = value;
+                OnPropertyChanged(nameof(SelectedSale));
+            }
+        }
 
 
         public void CreateSale(Sale newSale)

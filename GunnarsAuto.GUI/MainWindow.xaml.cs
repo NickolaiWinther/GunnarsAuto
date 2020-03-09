@@ -32,7 +32,8 @@ namespace GunnarsAuto.GUI
         private void CreateCarButton_Click(object sender, RoutedEventArgs e)
         {
             CreateCarWindow createCarWindow = new CreateCarWindow(salesViewModel);
-            createCarWindow.Show();
+            createCarWindow.ShowDialog();
+            SalesDataGrid.ItemsSource = salesViewModel.Sales;
         }
 
         private void SalesPersonsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,6 +47,22 @@ namespace GunnarsAuto.GUI
         private void SellCarButton_Click(object sender, RoutedEventArgs e)
         {
             SellCarWindow sellCarWindow = new SellCarWindow(salesViewModel);
+            sellCarWindow.ShowDialog();
+            SalesDataGrid.ItemsSource = salesViewModel.Sales;
+            SellCarButton.IsEnabled = false;
+        }
+
+        private void SalesDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            salesViewModel.SelectedSale = SalesDataGrid.SelectedItem as Sale;
+            if (salesViewModel.SelectedSale is null|| salesViewModel.SelectedSale.IsSold == false)
+            {
+                SellCarButton.IsEnabled = true;
+            }
+            else
+            {
+                SellCarButton.IsEnabled = false;
+            }
         }
     }
 }
